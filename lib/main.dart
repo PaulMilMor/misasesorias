@@ -3,6 +3,8 @@ import 'package:mis_asesorias/pages/home_page.dart';
 import 'package:mis_asesorias/pages/login_page.dart';
 import 'package:mis_asesorias/pages/signup_page.dart';
 
+import 'pages/feed_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,21 +15,31 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'MisAsesorias',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-        primarySwatch: Colors.blue,
-    ),
-
-    initialRoute: '/',
-    routes: {
-      '/': (BuildContext context) => const HomePage(),
-      '/login': (BuildContext context) => const LoginPage(),
-      '/signup': (BuildContext context) => const SignupPage(),
-
-      }
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode _currentFocus = FocusScope.of(context);
+        _unfocus(_currentFocus);
+      },
+      child: MaterialApp(
+          title: 'MisAsesorias',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          initialRoute: '/',
+          routes: {
+            '/': (BuildContext context) => const HomePage(),
+            '/login': (BuildContext context) => const LoginPage(),
+            '/signup': (BuildContext context) => const SignupPage(),
+            '/feed': (BuildContext context) => const FeedPage(),
+          }),
     );
   }
-}
 
+//Esta función es para perder el focus en un elemento al tocar cualquier parte vacía de la app
+  void _unfocus(FocusScopeNode _currentFocus) {
+    if (!_currentFocus.hasPrimaryFocus && _currentFocus.focusedChild != null) {
+      _currentFocus.focusedChild!.unfocus();
+    }
+  }
+}
