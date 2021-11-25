@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mis_asesorias/pages/account_page.dart';
+import 'package:mis_asesorias/pages/account_page_instructor.dart';
 import 'package:mis_asesorias/pages/home_page.dart';
 import 'package:mis_asesorias/pages/login_page.dart';
 import 'package:mis_asesorias/pages/signup_page.dart';
@@ -22,10 +24,12 @@ class MyApp extends StatelessWidget {
 
     initialRoute: '/',
     routes: {
+
       '/': (BuildContext context) => const HomePage(),
       '/login': (BuildContext context) => const LoginPage(),
       '/signup': (BuildContext context) => const SignupPage(),
-
+      '/acountPage': (BuildContext context) => const AccountPage(),
+      '/acountPageInstructor': (BuildContext context) => const AccountPageInstructor(),
       }
     );
   }
