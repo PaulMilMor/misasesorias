@@ -17,7 +17,8 @@ class _FeedPageState extends State<FeedPage> {
         categoria: 'categoria',
         precio: 200,
         descripcion: 'descripcion',
-        imagen: 'imagen',
+        imagen:
+            'https://media.istockphoto.com/photos/female-teacher-pointing-with-finger-at-mathematical-equation-on-in-picture-id1080232656?k=20&m=1080232656&s=612x612&w=0&h=7OszmnpcTXIiIhqUXUL3sOaI-nn9DisJU8z3ceeHL5k=',
         instructor: 'nombre instructor',
         valoracion: 1),
     AsesoriaModel(
@@ -99,6 +100,23 @@ class _FeedPageState extends State<FeedPage> {
         _seccion('Mejor Valorados', asesoriasValoradas),
         _seccion('Nuevo', asesoriasNuevas),
         _categorias(),
+        SizedBox(
+            height: 300,
+            width: double.infinity,
+            child: AsesoriaCard(asesoria: asesoriasValoradas[0], large: true)),
+        SizedBox(
+            height: 300,
+            width: double.infinity,
+            child: AsesoriaCard(
+                asesoria: asesoriasValoradas[0], large: true, bought: true)),
+        SizedBox(
+            height: 300,
+            width: double.infinity,
+            child: AsesoriaCard(
+                asesoria: asesoriasValoradas[0],
+                large: true,
+                instructor: true)),
+        _bookmarked()
       ],
     );
   }
@@ -106,29 +124,30 @@ class _FeedPageState extends State<FeedPage> {
   Widget _headerImg() {
     return SizedBox(
       width: double.infinity,
-      height: 120,
+      height: 150,
       child: Image.asset('assets/whitelogo_asset.png'),
     );
   }
 
   Widget _seccion(String header, List<AsesoriaModel> asesorias) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
           child: Text(
             header,
           ),
         ),
         SizedBox(
-          height: 120,
+          height: 250,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             itemCount: asesorias.length,
             itemBuilder: (BuildContext context, index) {
-              return AsesoriaCard(asesoria: asesorias[index]);
+              return SizedBox(
+                  width: 250, child: AsesoriaCard(asesoria: asesorias[index]));
               /*return Column(
                 children: [
                   Text(asesorias[index].imagen),
@@ -156,6 +175,23 @@ class _FeedPageState extends State<FeedPage> {
           ),
         ),
       ]),
+    );
+  }
+
+  Widget _bookmarked() {
+    return GridView.count(
+      childAspectRatio: 1,
+      physics: const AlwaysScrollableScrollPhysics(),
+      crossAxisCount: 2,
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      children: List.generate(asesoriasValoradas.length, (index) {
+        AsesoriaModel asesoria = asesoriasValoradas[index];
+        return AsesoriaCard(
+          asesoria: asesoria,
+          bookmarked: true,
+        );
+      }),
     );
   }
 }
