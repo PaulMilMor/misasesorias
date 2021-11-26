@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         onPressed: () {
-          Navigator.pushNamed(context, '/feed');
+          Navigator.pushNamed(context, '/navigation');
         },
       ),
     );
@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         onPressed: () {
-          Navigator.pushNamed(context, '/feed');
+          Navigator.pushNamed(context, '/navigation');
         },
       ),
     );

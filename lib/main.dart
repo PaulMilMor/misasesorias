@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mis_asesorias/pages/home_page.dart';
 import 'package:mis_asesorias/pages/login_page.dart';
+import 'package:mis_asesorias/pages/navigation_page.dart';
 import 'package:mis_asesorias/pages/signup_page.dart';
 
 import 'pages/feed_page.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
             '/login': (BuildContext context) => const LoginPage(),
             '/signup': (BuildContext context) => const SignupPage(),
             '/feed': (BuildContext context) => const FeedPage(),
+            '/navigation': (BuildContext context) => const NavigationPage(),
           }),
     );
   }
