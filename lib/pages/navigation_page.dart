@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mis_asesorias/pages/chats_page.dart';
 import 'package:mis_asesorias/pages/feed_page.dart';
 
 import 'account_page.dart';
@@ -22,7 +23,7 @@ class _NavigationPageState extends State<NavigationPage> {
   final List<Widget> _tabs = [
     const FeedPage(),
     const FeedPage(),
-    const FeedPage(),
+    const chatsPage(),
     const AccountPage(),
   ];
 
