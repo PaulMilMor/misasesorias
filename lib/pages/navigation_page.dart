@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mis_asesorias/pages/feed_page.dart';
 
+import 'account_page.dart';
+
 class NavigationPage extends StatefulWidget {
   const NavigationPage({Key? key}) : super(key: key);
 
@@ -21,7 +23,7 @@ class _NavigationPageState extends State<NavigationPage> {
     const FeedPage(),
     const FeedPage(),
     const FeedPage(),
-    const FeedPage(),
+    const AccountPage(),
   ];
 
   @override

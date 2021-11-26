@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mis_asesorias/pages/account_page.dart';
 import 'package:mis_asesorias/pages/account_page_instructor.dart';
+import 'package:mis_asesorias/pages/create_courses.dart';
+import 'package:mis_asesorias/pages/edit_course.dart';
 import 'package:mis_asesorias/pages/home_page.dart';
 import 'package:mis_asesorias/pages/login_page.dart';
 import 'package:mis_asesorias/pages/navigation_page.dart';
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
                 const AccountPageInstructor(),
             '/feed': (BuildContext context) => const FeedPage(),
             '/navigation': (BuildContext context) => const NavigationPage(),
+            '/createCourse': (BuildContext context) => const CreateCoursePage(),
+            '/editCourse': (BuildContext context) => const EditCoursePage(),
           }),
     );
   }
