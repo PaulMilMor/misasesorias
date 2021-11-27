@@ -39,6 +39,10 @@ class MyApp extends StatelessWidget {
                 const AccountPageInstructor(),
             '/feed': (BuildContext context) => const FeedPage(),
             '/navigation': (BuildContext context) => const NavigationPage(),
+            '/navigationInstructor': (BuildContext context) =>
+                const NavigationPage(
+                  isInstructor: true,
+                ),
           }),
     );
   }
