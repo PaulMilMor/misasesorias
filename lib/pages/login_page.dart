@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 16, 12, 60),
       child: TextField(
-        controller: _passwordController,
+        controller: _emailController,
         decoration: const InputDecoration(
           hintText: 'CONTRASEÑA',
         ),
@@ -149,8 +149,7 @@ class _LoginPageState extends State<LoginPage> {
 
   _loginAction() {
     String _email = _emailController.text;
-    String _password = _passwordController.text;
-    if (_email == "instructor" && _password == "instructor") {
+    if (_email == "instructor") {
       Navigator.pushNamed(context, '/navigationInstructor');
     } else {
       Navigator.pushNamed(context, '/navigation');

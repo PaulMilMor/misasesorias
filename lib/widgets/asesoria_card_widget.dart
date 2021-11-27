@@ -51,7 +51,7 @@ class _AsesoriaCardState extends State<AsesoriaCard> {
                       fit: BoxFit.cover,
                       height: double.infinity),
                   Visibility(
-                    visible: !widget.bought,
+                    visible: !widget.bought && !widget.instructor,
                     child: Positioned(
                         right: 0,
                         top: 0,

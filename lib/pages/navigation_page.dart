@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mis_asesorias/pages/account_page_instructor.dart';
+import 'package:mis_asesorias/pages/chats_page.dart';
 import 'package:mis_asesorias/pages/feed_page.dart';
+import 'package:mis_asesorias/pages/my_courses.dart';
+
+import 'account_page.dart';
 
 class NavigationPage extends StatefulWidget {
   final bool isInstructor;
@@ -24,9 +29,9 @@ class _NavigationPageState extends State<NavigationPage> {
 //estas son las pantallas a las que podrá acceder el estudiante
   final List<Widget> _tabs = [
     const FeedPage(),
-    const FeedPage(),
-    const FeedPage(),
-    const FeedPage(),
+    const MisAsesoriasPage(),
+    const chatsPage(),
+    const AccountPage(),
   ];
   final List<BottomNavigationBarItem> _items = const [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
@@ -37,10 +42,12 @@ class _NavigationPageState extends State<NavigationPage> {
   ];
 //estas son las pantallas a las que podrá acceder el instructor
   final List<Widget> _instructorTabs = [
+    const MisAsesoriasPage(
+      isInstructor: true,
+    ),
     const FeedPage(),
     const FeedPage(),
-    const FeedPage(),
-    const FeedPage(),
+    const AccountPageInstructor(),
   ];
   final List<BottomNavigationBarItem> _instructorItems = const [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
