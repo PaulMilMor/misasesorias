@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mis_asesorias/models/asesoria_model.dart';
+import 'package:mis_asesorias/widgets/asesoria_card_widget.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
@@ -9,10 +11,48 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
+
+  List<AsesoriaModel> asesoriasValoradas = [
+    AsesoriaModel(
+        titulo: 'titulo de asesoría',
+        categoria: 'categoria',
+        precio: 200,
+        descripcion: 'descripcion',
+        imagen:
+        'https://media.istockphoto.com/photos/female-teacher-pointing-with-finger-at-mathematical-equation-on-in-picture-id1080232656?k=20&m=1080232656&s=612x612&w=0&h=7OszmnpcTXIiIhqUXUL3sOaI-nn9DisJU8z3ceeHL5k=',
+        instructor: 'nombre instructor',
+        valoracion: 1),
+    AsesoriaModel(
+        titulo: 'titulo de asesoría',
+        categoria: 'categoria',
+        precio: 200,
+        descripcion: 'descripcion',
+        imagen: 'imagen',
+        instructor: 'nombre instructor',
+        valoracion: 1),
+    AsesoriaModel(
+        titulo: 'titulo de asesoría',
+        categoria: 'categoria',
+        precio: 200,
+        descripcion: 'descripcion',
+        imagen: 'imagen',
+        instructor: 'nombre instructor',
+        valoracion: 1),
+    AsesoriaModel(
+        titulo: 'titulo de asesoría',
+        categoria: 'categoria',
+        precio: 200,
+        descripcion: 'descripcion',
+        imagen: 'imagen',
+        instructor: 'nombre instructor',
+        valoracion: 1),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
+        child: SingleChildScrollView(
       child: Column(
         children: [
           Container(
@@ -114,11 +154,28 @@ class _AccountPageState extends State<AccountPage> {
                   )),
             ]),
           ),
+          _bookmarked(),
         ],
       ),
+        )
     ));
   }
-
+  Widget _bookmarked() {
+    return GridView.count(
+      childAspectRatio: 1,
+      physics: const AlwaysScrollableScrollPhysics(),
+      crossAxisCount: 2,
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      children: List.generate(asesoriasValoradas.length, (index) {
+        AsesoriaModel asesoria = asesoriasValoradas[index];
+        return AsesoriaCard(
+          asesoria: asesoria,
+          bookmarked: true,
+        );
+      }),
+    );
+  }
   Future<void> _showDialog() async {
     return showDialog<void>(
       context: context,

@@ -71,7 +71,7 @@ class _chatsPageState extends State<chatsPage> {
                     child: const Text('Nombre usuario',
                         style: TextStyle(color: Colors.black, fontSize: 16)),
                     onPressed: () {
-                      //Navigator.of(context).pop();
+                      Navigator.pushNamed(context, '/chatscreen');;
                     },
                   ),
                 ],
