@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mis_asesorias/models/asesoria_model.dart';
+import 'package:mis_asesorias/models/categoria_model.dart';
 import 'package:mis_asesorias/widgets/asesoria_card_widget.dart';
 
 class FeedPage extends StatefulWidget {
@@ -79,6 +80,45 @@ class _FeedPageState extends State<FeedPage> {
         imagen: 'imagen',
         instructor: 'nombre instructor',
         valoracion: 1),
+  ];
+
+  List<CategoriaModel> categorias = [
+    CategoriaModel(
+        titulo: 'Idiomas',
+        imagen:
+            'https://cdn.pixabay.com/photo/2018/07/08/08/45/abc-3523453_960_720.jpg'),
+    CategoriaModel(
+        titulo: 'Ciencias Exactas',
+        imagen:
+            'https://cdn.pixabay.com/photo/2016/11/29/01/16/abacus-1866497_960_720.jpg'),
+    CategoriaModel(
+        titulo: 'Informática',
+        imagen:
+            'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg'),
+    CategoriaModel(
+        titulo: 'Ciencias Sociales',
+        imagen:
+            'https://cdn.pixabay.com/photo/2016/08/15/08/22/greece-1594689_960_720.jpg'),
+    CategoriaModel(
+        titulo: 'Ciencias Naturales',
+        imagen:
+            'https://cdn.pixabay.com/photo/2017/02/01/13/53/analysis-2030265_960_720.jpg'),
+    CategoriaModel(
+        titulo: 'Cosas del Hogar',
+        imagen:
+            'https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265_960_720.jpg'),
+    CategoriaModel(
+        titulo: 'Electrónica y Mecánica',
+        imagen:
+            'https://cdn.pixabay.com/photo/2014/09/20/13/52/board-453758_960_720.jpg'),
+    CategoriaModel(
+        titulo: 'Arte',
+        imagen:
+            'https://cdn.pixabay.com/photo/2016/11/23/00/37/art-1851483_960_720.jpg'),
+    CategoriaModel(
+        titulo: 'Manualidades',
+        imagen:
+            'https://cdn.pixabay.com/photo/2016/11/18/17/14/cloth-1835894_960_720.jpg'),
   ];
 
   @override
@@ -167,12 +207,46 @@ class _FeedPageState extends State<FeedPage> {
   Widget _categorias() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Column(children: const [
-        Padding(
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'Categorías',
           ),
+        ),
+        GridView.count(
+          physics: const ScrollPhysics(),
+          childAspectRatio: 1,
+          crossAxisCount: 2,
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          children: List.generate(categorias.length, (index) {
+            return Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Flexible(
+                        flex: 3,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Image.network(
+                            categorias[index].imagen,
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                            height: double.infinity,
+                          ),
+                        ),
+                      ),
+                      Flexible(child: Text(categorias[index].titulo)),
+                    ],
+                  ),
+                ));
+          }),
         ),
       ]),
     );
