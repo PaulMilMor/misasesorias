@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CreateCoursePage extends StatefulWidget {
-  const CreateCoursePage({Key? key}) : super(key: key);
+class EditCoursePage extends StatefulWidget {
+  const EditCoursePage({Key? key}) : super(key: key);
 
   @override
-  _CreateCoursePageState createState() => _CreateCoursePageState();
+  _EditCoursePageState createState() => _EditCoursePageState();
 }
 
-class _CreateCoursePageState extends State<CreateCoursePage> {
+class _EditCoursePageState extends State<EditCoursePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class _CreateCoursePageState extends State<CreateCoursePage> {
               ),
               flexibleSpace: const FlexibleSpaceBar(
                 title: Text(
-                  'Crear Asesoría',
+                  'Editar Asesoría',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -75,7 +75,7 @@ class _CreateCoursePageState extends State<CreateCoursePage> {
           const Padding(
             padding: EdgeInsets.only(left: 12, top: 50, right: 12, bottom: 6),
           ),
-          _CreateButton()
+          _buttons()
           //_googleLoginButton(),
         ],
       ),
@@ -188,11 +188,36 @@ class _CreateCoursePageState extends State<CreateCoursePage> {
       ),
     );
   }
-  /*Widget _buttons() {
+Widget _buttons() {
     return Container(
-      width: 250,
+      width: 350,
       padding: EdgeInsets.fromLTRB(12, 16, 12, 6),
       alignment: Alignment.topRight,
+      child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+        TextButton(
+          child: Text('Cancelar'),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        ElevatedButton(
+          child: const Text('GUARDAR', style: TextStyle(color: Colors.black)),
+          style: ElevatedButton.styleFrom(
+            primary: const Color.fromRGBO(0, 172, 255, 1.0),
+            elevation: 0,
+            side: const BorderSide(
+              width: 1.0,
+              color: Colors.white,
+            ),
+          ),
+          onPressed: () {
+          },
+        ),
+
+      ]),
     );
-  }*/
+  }
 }
