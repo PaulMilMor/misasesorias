@@ -12,7 +12,6 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-
   List<AsesoriaModel> asesoriasValoradas = [
     AsesoriaModel(
         titulo: 'titulo de asesoría',
@@ -20,7 +19,7 @@ class _AccountPageState extends State<AccountPage> {
         precio: 200,
         descripcion: 'descripcion',
         imagen:
-        'https://media.istockphoto.com/photos/female-teacher-pointing-with-finger-at-mathematical-equation-on-in-picture-id1080232656?k=20&m=1080232656&s=612x612&w=0&h=7OszmnpcTXIiIhqUXUL3sOaI-nn9DisJU8z3ceeHL5k=',
+            'https://media.istockphoto.com/photos/female-teacher-pointing-with-finger-at-mathematical-equation-on-in-picture-id1080232656?k=20&m=1080232656&s=612x612&w=0&h=7OszmnpcTXIiIhqUXUL3sOaI-nn9DisJU8z3ceeHL5k=',
         instructor: 'nombre instructor',
         valoracion: 1),
     AsesoriaModel(
@@ -53,7 +52,7 @@ class _AccountPageState extends State<AccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-        child: SingleChildScrollView(
+            child: SingleChildScrollView(
       child: Column(
         children: [
           Container(
@@ -81,7 +80,6 @@ class _AccountPageState extends State<AccountPage> {
                           }
                         },
                         itemBuilder: (context) => [
-
                               const PopupMenuItem(
                                 child: Text("Cerrar sesión"),
                                 value: 1,
@@ -160,9 +158,9 @@ class _AccountPageState extends State<AccountPage> {
           _bookmarked(),
         ],
       ),
-        )
-    ));
+    )));
   }
+
   Widget _bookmarked() {
     return GridView.count(
       childAspectRatio: 1,
@@ -180,7 +178,6 @@ class _AccountPageState extends State<AccountPage> {
     );
   }
 
-
   Future<void> _showDialog() async {
     return showDialog<void>(
       context: context,
@@ -190,15 +187,14 @@ class _AccountPageState extends State<AccountPage> {
           //title: Text('AlertDialog Title'),
           content: SingleChildScrollView(
             child: ListBody(
-              children:  <Widget>[
+              children: <Widget>[
                 Container(
-                  alignment: Alignment.center,
+                    alignment: Alignment.center,
                     child: const Icon(
                       Icons.account_circle_rounded,
                       size: 80,
                       color: Color.fromRGBO(210, 210, 210, 1),
-                    )
-                ),
+                    )),
                 const TextField(
                   decoration: InputDecoration(
                     hintText: 'Nombre Completo',
@@ -229,168 +225,6 @@ class _AccountPageState extends State<AccountPage> {
             ),
             ElevatedButton(
               child: Text('Guardar'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-  Future<void> _reportDialog() async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          content: SingleChildScrollView(
-            child: ListBody(
-              children:  <Widget>[
-                Container(
-                    alignment: Alignment.center,
-                    child: const Text(
-                      "Reportar",
-                      style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.black,
-                          letterSpacing: 1.0,
-                          fontWeight: FontWeight.bold),
-                    )
-                ),
-                const Divider(
-                  color: Colors.grey,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Text(
-                  "¿Porqué quieres reportar esta asesoría?"
-                  ),
-                const SizedBox(
-                  height: 15,
-                ),
-                DropdownButton<String>(
-                  hint: const Text('(Seleccionar)'),
-                  items: <String>['(Seleccionar)'].map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (_) {},
-                ),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            ElevatedButton(
-              child: Text('Reportar'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-  Widget _chips(){
-    return Container(
-        child: Row(
-            children: [
-              ChoiceChip(
-                label: Text('Choice 1'),
-                selected: true,
-              ),
-              ChoiceChip(
-                label: Text('Choice 2'),
-                selected: false,
-              ),
-              ChoiceChip(
-                label: Text('Choice 3'),
-                selected: false,
-              ),
-            ]
-        ),
-    );
-  }
-  Widget _ratingbar(){
-    return RatingBar.builder(
-      initialRating: 3,
-      minRating: 1,
-      direction: Axis.horizontal,
-      allowHalfRating: true,
-      itemCount: 5,
-      itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-      itemBuilder: (context, _) => Icon(
-        Icons.star,
-        color: Colors.amber,
-      ),
-      onRatingUpdate: (rating) {
-        print(rating);
-      },
-    );
-  }
-
-  Future<void> _rateDialog() async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          content: SingleChildScrollView(
-            child: ListBody(
-              children:  <Widget>[
-                Container(
-                    alignment: Alignment.center,
-                    child: const Text(
-                      "Califica a 'John Doe'",
-                      style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.black,
-                          letterSpacing: 1.0,
-                          fontWeight: FontWeight.bold),
-                    )
-                ),
-                const Icon(
-                  Icons.account_circle_rounded,
-                  size: 80,
-                  color: Color.fromRGBO(210, 210, 210, 1),
-                ),
-                _ratingbar(),
-                _chips(),
-                _chips(),
-                _chips(),
-                const Divider(
-                  color: Colors.grey,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                const Text(
-                    "¿Qué te parecerió el contenido de Ciencias ||?"
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                _ratingbar(),
-                const SizedBox(
-                  height: 15,
-                ),
-            const TextField(
-              maxLines: 5,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-              ),
-
-            ),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            ElevatedButton(
-              child: Text('Continuar'),
               onPressed: () {
                 Navigator.of(context).pop();
               },

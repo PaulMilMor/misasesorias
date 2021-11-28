@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mis_asesorias/models/asesoria_model.dart';
 
 class AsesoriaDetailedPage extends StatefulWidget {
@@ -21,27 +22,10 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.grey),
           elevation: 0,
           backgroundColor: Colors.white,
-          actions: [
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  asesoria.bookmarked = !asesoria.bookmarked;
-                });
-              },
-              icon: asesoria.bookmarked
-                  ? const Icon(Icons.bookmark, color: Colors.blue)
-                  : const Icon(
-                      Icons.bookmark_border,
-                      color: Colors.grey,
-                    ),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.report, color: Colors.grey),
-            ),
-          ],
+          actions: _getActions(),
           leading: IconButton(
             icon: const Icon(
               Icons.arrow_back_ios,
@@ -68,6 +52,52 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
         ),
       ),
     );
+  }
+
+  List<Widget> _getActions() {
+    if (isInstructor) {
+      return [
+        PopupMenuButton(
+          onSelected: (result) {
+            switch (result) {
+              case 1:
+                Navigator.pushNamed(context, '/editCourse');
+                break;
+              case 2:
+                Navigator.pushNamed(context, '/detail',
+                    arguments: [asesoria, false]);
+                break;
+            }
+          },
+          itemBuilder: (context) => const [
+            PopupMenuItem(child: Text("Editar"), value: 1),
+            PopupMenuItem(child: Text("Ver como estudiante"), value: 2)
+          ],
+        ),
+      ];
+    } else {
+      return [
+        IconButton(
+          onPressed: () {
+            setState(() {
+              asesoria.bookmarked = !asesoria.bookmarked;
+            });
+          },
+          icon: asesoria.bookmarked
+              ? const Icon(Icons.bookmark, color: Colors.blue)
+              : const Icon(
+                  Icons.bookmark_border,
+                  color: Colors.grey,
+                ),
+        ),
+        IconButton(
+          onPressed: () {
+            _reportDialog();
+          },
+          icon: const Icon(Icons.report, color: Colors.grey),
+        ),
+      ];
+    }
   }
 
   Widget _detailedPage() {
@@ -326,11 +356,169 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
                   color: Colors.white,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                _rateDialog();
+              },
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _reportDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Container(
+                    alignment: Alignment.center,
+                    child: const Text(
+                      "Reportar",
+                      style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.black,
+                          letterSpacing: 1.0,
+                          fontWeight: FontWeight.bold),
+                    )),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Text("¿Porqué quieres reportar esta asesoría?"),
+                const SizedBox(
+                  height: 15,
+                ),
+                DropdownButton<String>(
+                  hint: const Text('(Seleccionar)'),
+                  items: <String>['(Seleccionar)'].map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (_) {},
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text('Reportar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _chips() {
+    return Container(
+      child: Row(children: [
+        ChoiceChip(
+          label: Text('Choice 1'),
+          selected: true,
+        ),
+        ChoiceChip(
+          label: Text('Choice 2'),
+          selected: false,
+        ),
+        ChoiceChip(
+          label: Text('Choice 3'),
+          selected: false,
+        ),
+      ]),
+    );
+  }
+
+  Widget _ratingbar() {
+    return RatingBar.builder(
+      initialRating: 3,
+      minRating: 1,
+      direction: Axis.horizontal,
+      allowHalfRating: true,
+      itemCount: 5,
+      itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+      itemBuilder: (context, _) => Icon(
+        Icons.star,
+        color: Colors.amber,
+      ),
+      onRatingUpdate: (rating) {
+        print(rating);
+      },
+    );
+  }
+
+  Future<void> _rateDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Container(
+                    alignment: Alignment.center,
+                    child: const Text(
+                      "Califica a 'John Doe'",
+                      style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.black,
+                          letterSpacing: 1.0,
+                          fontWeight: FontWeight.bold),
+                    )),
+                const Icon(
+                  Icons.account_circle_rounded,
+                  size: 80,
+                  color: Color.fromRGBO(210, 210, 210, 1),
+                ),
+                _ratingbar(),
+                _chips(),
+                _chips(),
+                _chips(),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Text("¿Qué te parecerió el contenido de Ciencias ||?"),
+                const SizedBox(
+                  height: 15,
+                ),
+                _ratingbar(),
+                const SizedBox(
+                  height: 15,
+                ),
+                const TextField(
+                  maxLines: 5,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text('Continuar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
