@@ -164,7 +164,7 @@ class _FeedPageState extends State<FeedPage> {
   Widget _headerImg() {
     return SizedBox(
       width: double.infinity,
-      height: 150,
+      height: 200,
       child: Image.asset('assets/whitelogo_asset.png'),
     );
   }

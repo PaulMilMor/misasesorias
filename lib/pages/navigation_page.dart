@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mis_asesorias/pages/account_page_instructor.dart';
 import 'package:mis_asesorias/pages/chats_page.dart';
+import 'package:mis_asesorias/pages/create_courses.dart';
 import 'package:mis_asesorias/pages/feed_page.dart';
 import 'package:mis_asesorias/pages/my_courses.dart';
 
@@ -45,8 +46,8 @@ class _NavigationPageState extends State<NavigationPage> {
     const MisAsesoriasPage(
       isInstructor: true,
     ),
-    const FeedPage(),
-    const FeedPage(),
+    const CreateCoursePage(),
+    const chatsPage(),
     const AccountPageInstructor(),
   ];
   final List<BottomNavigationBarItem> _instructorItems = const [
