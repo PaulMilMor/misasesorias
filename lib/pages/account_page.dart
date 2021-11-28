@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:mis_asesorias/models/asesoria_model.dart';
 import 'package:mis_asesorias/widgets/asesoria_card_widget.dart';
 
@@ -100,6 +101,8 @@ class _AccountPageState extends State<AccountPage> {
               ),
               onPressed: () {
                 _showDialog();
+                //_reportDialog();
+                //_rateDialog();
               },
               iconSize: 32,
             ),
@@ -176,6 +179,8 @@ class _AccountPageState extends State<AccountPage> {
       }),
     );
   }
+
+
   Future<void> _showDialog() async {
     return showDialog<void>(
       context: context,
@@ -224,6 +229,168 @@ class _AccountPageState extends State<AccountPage> {
             ),
             ElevatedButton(
               child: Text('Guardar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+  Future<void> _reportDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: SingleChildScrollView(
+            child: ListBody(
+              children:  <Widget>[
+                Container(
+                    alignment: Alignment.center,
+                    child: const Text(
+                      "Reportar",
+                      style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.black,
+                          letterSpacing: 1.0,
+                          fontWeight: FontWeight.bold),
+                    )
+                ),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Text(
+                  "¿Porqué quieres reportar esta asesoría?"
+                  ),
+                const SizedBox(
+                  height: 15,
+                ),
+                DropdownButton<String>(
+                  hint: const Text('(Seleccionar)'),
+                  items: <String>['(Seleccionar)'].map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (_) {},
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text('Reportar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+  Widget _chips(){
+    return Container(
+        child: Row(
+            children: [
+              ChoiceChip(
+                label: Text('Choice 1'),
+                selected: true,
+              ),
+              ChoiceChip(
+                label: Text('Choice 2'),
+                selected: false,
+              ),
+              ChoiceChip(
+                label: Text('Choice 3'),
+                selected: false,
+              ),
+            ]
+        ),
+    );
+  }
+  Widget _ratingbar(){
+    return RatingBar.builder(
+      initialRating: 3,
+      minRating: 1,
+      direction: Axis.horizontal,
+      allowHalfRating: true,
+      itemCount: 5,
+      itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+      itemBuilder: (context, _) => Icon(
+        Icons.star,
+        color: Colors.amber,
+      ),
+      onRatingUpdate: (rating) {
+        print(rating);
+      },
+    );
+  }
+
+  Future<void> _rateDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: SingleChildScrollView(
+            child: ListBody(
+              children:  <Widget>[
+                Container(
+                    alignment: Alignment.center,
+                    child: const Text(
+                      "Califica a 'John Doe'",
+                      style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.black,
+                          letterSpacing: 1.0,
+                          fontWeight: FontWeight.bold),
+                    )
+                ),
+                const Icon(
+                  Icons.account_circle_rounded,
+                  size: 80,
+                  color: Color.fromRGBO(210, 210, 210, 1),
+                ),
+                _ratingbar(),
+                _chips(),
+                _chips(),
+                _chips(),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const Text(
+                    "¿Qué te parecerió el contenido de Ciencias ||?"
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                _ratingbar(),
+                const SizedBox(
+                  height: 15,
+                ),
+            const TextField(
+              maxLines: 5,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+              ),
+
+            ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text('Continuar'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
