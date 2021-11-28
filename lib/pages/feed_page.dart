@@ -221,31 +221,37 @@ class _FeedPageState extends State<FeedPage> {
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           children: List.generate(categorias.length, (index) {
-            return Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Flexible(
-                        flex: 3,
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Image.network(
-                            categorias[index].imagen,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                            height: double.infinity,
+            return GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/categories',
+                    arguments: categorias[index]);
+              },
+              child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Flexible(
+                          flex: 3,
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Image.network(
+                              categorias[index].imagen,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                              height: double.infinity,
+                            ),
                           ),
                         ),
-                      ),
-                      Flexible(child: Text(categorias[index].titulo)),
-                    ],
-                  ),
-                ));
+                        Flexible(child: Text(categorias[index].titulo)),
+                      ],
+                    ),
+                  )),
+            );
           }),
         ),
       ]),
