@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mis_asesorias/pages/account_page.dart';
 import 'package:mis_asesorias/pages/account_page_instructor.dart';
+import 'package:mis_asesorias/pages/category_page.dart';
 import 'package:mis_asesorias/pages/chat_screen.dart';
 import 'package:mis_asesorias/pages/create_courses.dart';
 import 'package:mis_asesorias/pages/edit_course.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
             '/createCourse': (BuildContext context) => const CreateCoursePage(),
             '/editCourse': (BuildContext context) => const EditCoursePage(),
             '/chatscreen': (BuildContext context) => const ChatScreenPage(),
+            '/categories': (BuildContext context) => const CategoryPage(),
           }),
     );
   }
