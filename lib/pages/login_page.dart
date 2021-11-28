@@ -9,6 +9,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,10 +83,11 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _emailTxt() {
-    return const Padding(
-      padding: EdgeInsets.fromLTRB(12, 16, 12, 6),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 16, 12, 6),
       child: TextField(
-        decoration: InputDecoration(
+        controller: _emailController,
+        decoration: const InputDecoration(
           hintText: 'CORREO ELECTRONICO',
         ),
         keyboardType: TextInputType.emailAddress,
@@ -92,10 +96,11 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _passwordTxt() {
-    return const Padding(
-      padding: EdgeInsets.fromLTRB(12, 16, 12, 60),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 16, 12, 60),
       child: TextField(
-        decoration: InputDecoration(
+        controller: _passwordController,
+        decoration: const InputDecoration(
           hintText: 'CONTRASEÑA',
         ),
         obscureText: true,
@@ -117,9 +122,7 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.white,
           ),
         ),
-        onPressed: () {
-          Navigator.pushNamed(context, '/navigation');
-        },
+        onPressed: _loginAction,
       ),
     );
   }
@@ -139,10 +142,18 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.white,
           ),
         ),
-        onPressed: () {
-          Navigator.pushNamed(context, '/navigation');
-        },
+        onPressed: _loginAction,
       ),
     );
+  }
+
+  _loginAction() {
+    String _email = _emailController.text;
+    String _password = _passwordController.text;
+    if (_email == "instructor" && _password == "instructor") {
+      Navigator.pushNamed(context, '/navigationInstructor');
+    } else {
+      Navigator.pushNamed(context, '/navigation');
+    }
   }
 }
