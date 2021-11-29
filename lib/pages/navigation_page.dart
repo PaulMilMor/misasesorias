@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mis_asesorias/pages/chats_page.dart';
 import 'package:mis_asesorias/pages/feed_page.dart';
-
-import 'account_page.dart';
 
 class NavigationPage extends StatefulWidget {
   final bool isInstructor;
@@ -28,8 +25,8 @@ class _NavigationPageState extends State<NavigationPage> {
   final List<Widget> _tabs = [
     const FeedPage(),
     const FeedPage(),
-    const chatsPage(),
-    const AccountPage(),
+    const FeedPage(),
+    const FeedPage(),
   ];
   final List<BottomNavigationBarItem> _items = const [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
