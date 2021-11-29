@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mis_asesorias/pages/chats_page.dart';
 import 'package:mis_asesorias/pages/feed_page.dart';
+
+import 'account_page.dart';
 
 class NavigationPage extends StatefulWidget {
   final bool isInstructor;
@@ -25,8 +28,8 @@ class _NavigationPageState extends State<NavigationPage> {
   final List<Widget> _tabs = [
     const FeedPage(),
     const FeedPage(),
-    const FeedPage(),
-    const FeedPage(),
+    const chatsPage(),
+    const AccountPage(),
   ];
   final List<BottomNavigationBarItem> _items = const [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
@@ -42,6 +45,23 @@ class _NavigationPageState extends State<NavigationPage> {
     const FeedPage(),
     const FeedPage(),
   ];
+<<<<<<<<< Temporary merge branch 1
+  final List<BottomNavigationBarItem> _items = const [
+    BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
+    BottomNavigationBarItem(
+        icon: Icon(Icons.font_download), label: 'Mis Asesorías'),
+    BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
+    BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+  ];
+//estas son las pantallas a las que podrá acceder el instructor
+  final List<Widget> _instructorTabs = [
+    const FeedPage(),
+    const FeedPage(),
+    const FeedPage(),
+    const FeedPage(),
+  ];
+=========
+>>>>>>>>> Temporary merge branch 2
   final List<BottomNavigationBarItem> _instructorItems = const [
     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
     BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Nueva Asesoría'),

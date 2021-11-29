@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mis_asesorias/models/asesoria_model.dart';
+import 'package:mis_asesorias/models/categoria_model.dart';
 import 'package:mis_asesorias/widgets/asesoria_card_widget.dart';
 
-class MisAsesoriasPage extends StatefulWidget {
-  final bool isInstructor;
-  const MisAsesoriasPage({
-    Key? key,
-    this.isInstructor = false,
-  }) : super(key: key);
+class CategoryPage extends StatefulWidget {
+  const CategoryPage({Key? key}) : super(key: key);
 
   @override
-  _MisAsesoriasPageState createState() => _MisAsesoriasPageState();
+  _CategoryPageState createState() => _CategoryPageState();
 }
 
-class _MisAsesoriasPageState extends State<MisAsesoriasPage> {
+class _CategoryPageState extends State<CategoryPage> {
   List<AsesoriaModel> asesorias = [
     AsesoriaModel(
         titulo: 'titulo de asesoría',
@@ -49,22 +46,31 @@ class _MisAsesoriasPageState extends State<MisAsesoriasPage> {
         instructor: 'nombre instructor',
         valoracion: 1),
   ];
-
   @override
   Widget build(BuildContext context) {
+    final CategoriaModel categoria =
+        ModalRoute.of(context)!.settings.arguments as CategoriaModel;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: const Text(
-          'Mis Asesorías',
-          style: TextStyle(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Color.fromRGBO(0, 0, 0, 1.0),
+          ),
+          onPressed: () => Navigator.of(context).pop(),
+          iconSize: 32,
+        ),
+        title: Text(
+          categoria.titulo,
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Color.fromRGBO(0, 0, 0, 1.0),
           ),
         ),
+        centerTitle: true,
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -78,12 +84,7 @@ class _MisAsesoriasPageState extends State<MisAsesoriasPage> {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 16,
-          ),
-          _cards(),
-        ],
+        children: [_cards()],
       ),
     );
   }
@@ -101,8 +102,6 @@ class _MisAsesoriasPageState extends State<MisAsesoriasPage> {
           child: AsesoriaCard(
             asesoria: asesorias[index],
             large: true,
-            bought: !widget.isInstructor,
-            instructor: widget.isInstructor,
           ),
         );
       },

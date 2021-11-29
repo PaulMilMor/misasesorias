@@ -6,6 +6,7 @@ class AsesoriaModel {
   String imagen;
   String instructor;
   int valoracion;
+  bool bookmarked;
 
   AsesoriaModel({
     required this.titulo,
@@ -15,5 +16,6 @@ class AsesoriaModel {
     required this.imagen,
     required this.instructor,
     required this.valoracion,
+    this.bookmarked = false,
   });
 }
