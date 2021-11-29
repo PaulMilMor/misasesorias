@@ -114,7 +114,7 @@ class _SignupPageState extends State<SignupPage> {
 
   Widget segmentedControl() {
     return Container(
-      width: 300,
+      width: double.infinity,
       child: CupertinoSlidingSegmentedControl(
           groupValue: segmentedControlValue,
           backgroundColor: Colors.blue.shade200,
@@ -186,7 +186,7 @@ class _SignupPageState extends State<SignupPage> {
       width: double.infinity,
       height: 50,
       child: ElevatedButton(
-        child: const Text('INGRESAR', style: TextStyle(color: Colors.black)),
+        child: const Text('REGISTRARSE', style: TextStyle(color: Colors.black)),
         style: ElevatedButton.styleFrom(
           primary: const Color.fromRGBO(0, 172, 255, 1.0),
           elevation: 0,

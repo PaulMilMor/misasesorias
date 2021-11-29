@@ -29,7 +29,7 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
                   onPressed: () => Navigator.of(context).pop(),
                   iconSize: 25,
                 ),
-                  const Icon(Icons.account_circle_rounded,size:50),
+                const Icon(Icons.account_circle_rounded, size: 50),
                 const Text(" Nombre usuario",
                     style: TextStyle(
                       fontSize: 18.0,
