@@ -53,6 +53,19 @@ class _MisAsesoriasPageState extends State<MisAsesoriasPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        title: const Text(
+          'Mis Asesorías',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Color.fromRGBO(0, 0, 0, 1.0),
+          ),
+        ),
+      ),
       body: SafeArea(
           child: SingleChildScrollView(
         child: _asesoriasList(),
@@ -66,7 +79,6 @@ class _MisAsesoriasPageState extends State<MisAsesoriasPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Mis Asesorías'),
           const SizedBox(
             height: 16,
           ),

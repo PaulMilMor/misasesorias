@@ -47,9 +47,12 @@ class _AccountPageState extends State<AccountPage> {
         instructor: 'nombre instructor',
         valoracion: 1),
   ];
-
+  bool _isInstructor = false;
   @override
   Widget build(BuildContext context) {
+    if (ModalRoute.of(context)!.settings.arguments != null) {
+      _isInstructor = ModalRoute.of(context)!.settings.arguments as bool;
+    }
     return Scaffold(
         body: SafeArea(
             child: SingleChildScrollView(
@@ -69,48 +72,53 @@ class _AccountPageState extends State<AccountPage> {
                         size: 120,
                         color: Color.fromRGBO(210, 210, 210, 1),
                       )),
-                  Container(
-                    width: 250,
-                    alignment: const Alignment(1.2, -0.8),
-                    child: PopupMenuButton(
-                        //icon: Icon(Icons.more_),
-                        onSelected: (result) {
-                          if (result == 1) {
-                            Navigator.pushNamed(context, '/');
-                          }
-                        },
-                        itemBuilder: (context) => [
-                              const PopupMenuItem(
-                                child: Text("Cerrar sesión"),
-                                value: 1,
-                              ),
-                            ]),
-                  ),
+                  _isInstructor
+                      ? _backButton()
+                      : Container(
+                          width: 250,
+                          alignment: const Alignment(1.2, -0.8),
+                          child: PopupMenuButton(
+                              //icon: Icon(Icons.more_),
+                              onSelected: (result) {
+                                if (result == 1) {
+                                  Navigator.pushNamed(context, '/');
+                                }
+                              },
+                              itemBuilder: (context) => [
+                                    const PopupMenuItem(
+                                      child: Text("Cerrar sesión"),
+                                      value: 1,
+                                    ),
+                                  ]),
+                        ),
                 ],
               ),
             ),
           ),
-          Container(
-            alignment: Alignment.topRight,
-            child: IconButton(
-              icon: const Icon(
-                Icons.edit_rounded,
-                color: Color.fromRGBO(0, 0, 0, 1.0),
-              ),
-              onPressed: () {
-                _showDialog();
-                //_reportDialog();
-                //_rateDialog();
-              },
-              iconSize: 32,
-            ),
-          ),
+          _isInstructor
+              ? _chatButton()
+              : Container(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.edit_rounded,
+                      color: Color.fromRGBO(0, 0, 0, 1.0),
+                    ),
+                    onPressed: () {
+                      _showDialog();
+                      //_reportDialog();
+                      //_rateDialog();
+                    },
+                    iconSize: 32,
+                  ),
+                ),
           const SizedBox(
             height: 10,
           ),
           Container(
             alignment: const Alignment(-0.9, -0.8),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text(
                   "Nombre",
@@ -144,37 +152,107 @@ class _AccountPageState extends State<AccountPage> {
               color: Colors.grey,
             ),
           ),
-          Container(
-            width: 350,
-            alignment: Alignment.topLeft,
-            child: Wrap(children: const [
-              Icon(Icons.book),
-              Text(" Elementos guardados",
-                  style: TextStyle(
-                    fontSize: 18.0,
-                  )),
-            ]),
-          ),
-          _bookmarked(),
+          _isInstructor ? _alumnoAsesorias() : _bookmarked(),
         ],
       ),
     )));
   }
 
-  Widget _bookmarked() {
-    return GridView.count(
-      childAspectRatio: 1,
-      physics: const AlwaysScrollableScrollPhysics(),
-      crossAxisCount: 2,
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      children: List.generate(asesoriasValoradas.length, (index) {
-        AsesoriaModel asesoria = asesoriasValoradas[index];
-        return AsesoriaCard(
-          asesoria: asesoria,
-          bookmarked: true,
+  Widget _chatButton() {
+    return Container(
+      alignment: Alignment.topRight,
+      child: IconButton(
+        icon: const Icon(
+          Icons.chat_bubble_outline,
+          color: Color.fromRGBO(0, 0, 0, 1.0),
+        ),
+        onPressed: () {
+          Navigator.of(context).pushNamed('/chatscreen');
+          //_reportDialog();
+          //_rateDialog();
+        },
+        iconSize: 32,
+      ),
+    );
+  }
+
+  Widget _backButton() {
+    return Container(
+        /* width: 250,
+      alignment: const Alignment(-1.4, -0.8),
+      //alignment: const Alignment(1.2, -0.8),
+      child: IconButton(
+        icon: const Icon(
+          Icons.arrow_back_ios,
+          color: Color.fromRGBO(0, 0, 0, 1.0),
+        ),
+        onPressed: () => Navigator.of(context).pop(),
+        iconSize: 32,
+      ),*/
         );
-      }),
+  }
+
+  Widget _alumnoAsesorias() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text("Mi alumno en:",
+              style: TextStyle(
+                fontSize: 18.0,
+              )),
+          ListView.builder(
+            physics: const ScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: asesoriasValoradas.length,
+            itemBuilder: (BuildContext context, index) {
+              return SizedBox(
+                height: 300,
+                width: double.infinity,
+                child: AsesoriaCard(
+                  asesoria: asesoriasValoradas[index],
+                  large: true,
+                  instructor: true,
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _bookmarked() {
+    return Column(
+      children: [
+        Container(
+          width: 350,
+          alignment: Alignment.topLeft,
+          child: Wrap(children: const [
+            Icon(Icons.book),
+            Text(" Elementos guardados",
+                style: TextStyle(
+                  fontSize: 18.0,
+                )),
+          ]),
+        ),
+        GridView.count(
+          childAspectRatio: 1,
+          physics: const NeverScrollableScrollPhysics(),
+          crossAxisCount: 2,
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          children: List.generate(asesoriasValoradas.length, (index) {
+            AsesoriaModel asesoria = asesoriasValoradas[index];
+            return AsesoriaCard(
+              asesoria: asesoria,
+              bookmarked: true,
+            );
+          }),
+        ),
+      ],
     );
   }
 

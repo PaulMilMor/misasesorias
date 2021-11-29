@@ -250,14 +250,20 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       child: Row(
-        children: const [
-          Icon(
+        children: [
+          const Icon(
             Icons.account_circle_rounded,
             size: 56,
             color: Color.fromRGBO(210, 210, 210, 1),
           ),
-          SizedBox(width: 8),
-          Text('Nombre Usuario')
+          const SizedBox(width: 8),
+          InkWell(
+            onTap: () {
+              Navigator.of(context).pushNamed('/acountPage', arguments: true);
+              print('????');
+            },
+            child: const Text('Nombre Usuario'),
+          ),
         ],
       ),
     );
@@ -492,7 +498,7 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
                 const SizedBox(
                   height: 15,
                 ),
-                const Text("¿Qué te parecerió el contenido de Ciencias ||?"),
+                const Text("¿Qué te pareció el contenido de Ciencias II?"),
                 const SizedBox(
                   height: 15,
                 ),

@@ -140,23 +140,6 @@ class _FeedPageState extends State<FeedPage> {
         _seccion('Mejor Valorados', asesoriasValoradas),
         _seccion('Nuevo', asesoriasNuevas),
         _categorias(),
-        SizedBox(
-            height: 300,
-            width: double.infinity,
-            child: AsesoriaCard(asesoria: asesoriasValoradas[0], large: true)),
-        SizedBox(
-            height: 300,
-            width: double.infinity,
-            child: AsesoriaCard(
-                asesoria: asesoriasValoradas[0], large: true, bought: true)),
-        SizedBox(
-            height: 300,
-            width: double.infinity,
-            child: AsesoriaCard(
-                asesoria: asesoriasValoradas[0],
-                large: true,
-                instructor: true)),
-        _bookmarked()
       ],
     );
   }
