@@ -162,7 +162,12 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
             color: Color.fromRGBO(210, 210, 210, 1),
           ),
           const SizedBox(width: 8),
-          Text(asesoria.instructor),
+          TextButton(
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(color: Colors.black),
+              ),
+              onPressed: () { Navigator.pushNamed(context, '/instructorProfile'); },
+              child: Text(asesoria.instructor)),
         ],
       ),
     );
