@@ -14,95 +14,105 @@ class FeedPage extends StatefulWidget {
 class _FeedPageState extends State<FeedPage> {
   List<AsesoriaModel> asesoriasValoradas = [
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Cálculo',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
+        descripcion:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra non sem et molestie. Fusce ultrices velit purus, non posuere libero placerat vel.',
         imagen:
             'https://media.istockphoto.com/photos/female-teacher-pointing-with-finger-at-mathematical-equation-on-in-picture-id1080232656?k=20&m=1080232656&s=612x612&w=0&h=7OszmnpcTXIiIhqUXUL3sOaI-nn9DisJU8z3ceeHL5k=',
-        instructor: 'nombre instructor',
+        instructor: 'Lausa Mayor',
         valoracion: 1),
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Power Your Dreams',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Praesent tincidunt nibh sem, eu gravida est mollis eget. Pellentesque euismod felis non porta lobortis. Aliquam sit amet massa congue, gravida mauris nec, viverra sapien.',
+        imagen: 'https://i.ytimg.com/vi/F06b_reZxiY/maxresdefault.jpg',
+        instructor: 'Memo VII Z',
         valoracion: 1),
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Composición Musical',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Curabitur luctus id mi non efficitur. In magna dui, lobortis sit amet diam sodales, placerat porta ipsum. Vestibulum mollis ligula nec porta elementum. ',
+        imagen:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0hoJXOQeUSPt94PYR46S_8U2zWUfWF0PnOw&usqp=CAU',
+        instructor: 'Jaime Bond',
         valoracion: 1),
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Whisky Casero',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Integer eu commodo nunc, id vestibulum purus. Donec feugiat justo quis sem suscipit, fringilla consequat eros pulvinar. Donec et odio fringilla, imperdiet eros ut, sollicitudin lectus.',
+        imagen:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9DFIxQsWErMsK6zKuPBQUxR-CL3O5y5Kg_w&usqp=CAU',
+        instructor: 'Alberto Singleton',
         valoracion: 1),
   ];
   List<AsesoriaModel> asesoriasNuevas = [
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Finanzas',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Nam nec leo nibh. Suspendisse euismod leo ut tortor congue, eget cursus lacus dignissim. Vivamus non lobortis ante, id fringilla tellus. In blandit accumsan nisi, nec tincidunt justo viverra finibus. ',
+        imagen:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTwkZbwLE9Gjn9N1QC5_2Z9z-RVjGTVPxS8g&usqp=CAU',
+        instructor: 'Ryan Reyna',
         valoracion: 1),
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Programación',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Sed dignissim justo velit, vel gravida neque accumsan nec. Morbi est arcu, egestas eu convallis ut, molestie nec velit. Maecenas sit amet lorem a tellus varius molestie.',
+        imagen:
+            'https://img.vixdata.io/pd/jpg-large/es/sites/default/files/p/pietro_ralph_bohner_wandavision.jpg',
+        instructor: 'Pedro Máximo',
         valoracion: 1),
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Mermelada de Ciruela',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Nullam at fringilla ex. Suspendisse vitae malesuada lectus, id venenatis mi. Nam imperdiet at eros at pellentesque. ',
+        imagen:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRxOKp-NbmAUCM8lVEa1RMewBgwgy5QhXJYA&usqp=CAU',
+        instructor: 'Luis Miguel',
         valoracion: 1),
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Emprendimiento',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Morbi ornare erat orci, a feugiat nunc euismod vitae. Suspendisse ultricies augue vitae facilisis aliquet. Pellentesque quis porttitor purus, vel placerat tortor.',
+        imagen:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1zCbxKzv40nNoBnX9VqM0S6Bne6A1aQCjfA&usqp=CAU',
+        instructor: 'Bill Gates',
         valoracion: 1),
   ];
 
   List<CategoriaModel> categorias = [
     CategoriaModel(
-        titulo: 'Idiomas',
+        titulo: 'Arte',
         imagen:
-            'https://cdn.pixabay.com/photo/2018/07/08/08/45/abc-3523453_960_720.jpg'),
+            'https://cdn.pixabay.com/photo/2016/11/23/00/37/art-1851483_960_720.jpg'),
     CategoriaModel(
         titulo: 'Ciencias Exactas',
         imagen:
             'https://cdn.pixabay.com/photo/2016/11/29/01/16/abacus-1866497_960_720.jpg'),
     CategoriaModel(
-        titulo: 'Informática',
+        titulo: 'Ciencias Naturales',
         imagen:
-            'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg'),
+            'https://cdn.pixabay.com/photo/2017/02/01/13/53/analysis-2030265_960_720.jpg'),
     CategoriaModel(
         titulo: 'Ciencias Sociales',
         imagen:
             'https://cdn.pixabay.com/photo/2016/08/15/08/22/greece-1594689_960_720.jpg'),
-    CategoriaModel(
-        titulo: 'Ciencias Naturales',
-        imagen:
-            'https://cdn.pixabay.com/photo/2017/02/01/13/53/analysis-2030265_960_720.jpg'),
     CategoriaModel(
         titulo: 'Cosas del Hogar',
         imagen:
@@ -112,13 +122,13 @@ class _FeedPageState extends State<FeedPage> {
         imagen:
             'https://cdn.pixabay.com/photo/2014/09/20/13/52/board-453758_960_720.jpg'),
     CategoriaModel(
-        titulo: 'Arte',
+        titulo: 'Idiomas',
         imagen:
-            'https://cdn.pixabay.com/photo/2016/11/23/00/37/art-1851483_960_720.jpg'),
+            'https://cdn.pixabay.com/photo/2018/07/08/08/45/abc-3523453_960_720.jpg'),
     CategoriaModel(
-        titulo: 'Manualidades',
+        titulo: 'Informática',
         imagen:
-            'https://cdn.pixabay.com/photo/2016/11/18/17/14/cloth-1835894_960_720.jpg'),
+            'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg'),
   ];
 
   @override
@@ -145,10 +155,13 @@ class _FeedPageState extends State<FeedPage> {
   }
 
   Widget _headerImg() {
-    return SizedBox(
-      width: double.infinity,
-      height: 200,
-      child: Image.asset('assets/whitelogo_asset.png'),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: SizedBox(
+        width: double.infinity,
+        height: 200,
+        child: Image.asset('assets/images/mis_asesorias.png'),
+      ),
     );
   }
 

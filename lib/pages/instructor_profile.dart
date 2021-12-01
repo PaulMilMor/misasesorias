@@ -14,13 +14,13 @@ class InstructorProfilePage extends StatefulWidget {
 class _InstructorProfilePageState extends State<InstructorProfilePage> {
   List<AsesoriaModel> asesoriasValoradas = [
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Power Your Dreams',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen:
-            'https://media.istockphoto.com/photos/female-teacher-pointing-with-finger-at-mathematical-equation-on-in-picture-id1080232656?k=20&m=1080232656&s=612x612&w=0&h=7OszmnpcTXIiIhqUXUL3sOaI-nn9DisJU8z3ceeHL5k=',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Praesent tincidunt nibh sem, eu gravida est mollis eget. Pellentesque euismod felis non porta lobortis. Aliquam sit amet massa congue, gravida mauris nec, viverra sapien.',
+        imagen: 'https://i.ytimg.com/vi/F06b_reZxiY/maxresdefault.jpg',
+        instructor: 'Memo VII Z',
         valoracion: 1),
     AsesoriaModel(
         titulo: 'titulo de asesoría',
@@ -47,9 +47,11 @@ class _InstructorProfilePageState extends State<InstructorProfilePage> {
         instructor: 'nombre instructor',
         valoracion: 1),
   ];
-
+  late String instructor;
   @override
   Widget build(BuildContext context) {
+    instructor = ModalRoute.of(context)!.settings.arguments as String;
+
     return Scaffold(
         appBar: AppBar(
           iconTheme: const IconThemeData(color: Colors.grey),
@@ -65,129 +67,129 @@ class _InstructorProfilePageState extends State<InstructorProfilePage> {
           ),
         ),
         body: SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              color: Colors.grey,
-              child: Container(
-                width: double.infinity,
-                height: 125,
-                child: Row(
-                  children: [
-                    Container(
-                        width: 150,
-                        alignment: Alignment(-0.8, 1.8),
-                        child: const Icon(
-                          Icons.star,
-                          size: 30,
-                        )),
-                    Container(
-                        width: 150,
-                        alignment: Alignment(-1.0, 5.0),
-                        child: const Icon(
-                          Icons.account_circle_rounded,
-                          size: 100,
-                          color: Color.fromRGBO(210, 210, 210, 1),
-                        )),
-                  ],
-                ),
-              ),
-            ),
-            _chatButton(),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: double.infinity,
-              alignment: const Alignment(-0.0, -0.8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 350,
-                    alignment: Alignment.center,
-                    child: Column(children: const [
-                      Text(
-                        "Nombre completo",
-                        style: TextStyle(
-                            fontSize: 25.0,
-                            color: Colors.blueGrey,
-                            letterSpacing: 1.0,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Email",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.black45,
-                          letterSpacing: 1.0,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                    ]),
-                  ),
-                  Container(
-                    width: 350,
-                    alignment: Alignment.center,
-                    child: const TextField(
-                      maxLines: 2,
-                      readOnly: true,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        hintText: 'Bio',
-                        border: OutlineInputBorder(),
-                      ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  color: Colors.grey,
+                  child: Container(
+                    width: double.infinity,
+                    height: 125,
+                    child: Row(
+                      children: [
+                        Container(
+                            width: 150,
+                            alignment: Alignment(-0.8, 1.8),
+                            child: const Icon(
+                              Icons.star,
+                              size: 30,
+                            )),
+                        Container(
+                            width: 150,
+                            alignment: Alignment(-1.0, 5.0),
+                            child: const Icon(
+                              Icons.account_circle_rounded,
+                              size: 100,
+                              color: Color.fromRGBO(210, 210, 210, 1),
+                            )),
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
+                ),
+                _chatButton(),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.infinity,
+                  alignment: const Alignment(-0.0, -0.8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 350,
+                        alignment: Alignment.center,
+                        child: Column(children: [
+                          Text(
+                            instructor,
+                            style: const TextStyle(
+                                fontSize: 25.0,
+                                color: Colors.blueGrey,
+                                letterSpacing: 1.0,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          const Text(
+                            "2222@gmail.com",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black45,
+                              letterSpacing: 1.0,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                        ]),
+                      ),
+                      Container(
+                        width: 350,
+                        alignment: Alignment.center,
+                        child: const TextField(
+                          maxLines: 2,
+                          readOnly: true,
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            hintText: 'Bio',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(
+                  width: 350,
+                  height: 30,
+                  child: Divider(
+                    color: Colors.grey,
+                  ),
+                ),
+                Container(
+                  width: 350,
+                  alignment: Alignment.topLeft,
+                  child: Wrap(children: const [
+                    Text(" Asesorías",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                        )),
+                  ]),
+                ),
+                SizedBox(
+                    height: 300,
+                    width: double.infinity,
+                    child: AsesoriaCard(
+                        asesoria: asesoriasValoradas[0],
+                        large: true,
+                        instructor: false)),
+                SizedBox(
+                    height: 300,
+                    width: double.infinity,
+                    child: AsesoriaCard(
+                        asesoria: asesoriasValoradas[0],
+                        large: true,
+                        instructor: false)),
+              ],
             ),
-            const SizedBox(
-              width: 350,
-              height: 30,
-              child: Divider(
-                color: Colors.grey,
-              ),
-            ),
-            Container(
-              width: 350,
-              alignment: Alignment.topLeft,
-              child: Wrap(children: const [
-                Text(" Asesorías",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                    )),
-              ]),
-            ),
-            SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: AsesoriaCard(
-                    asesoria: asesoriasValoradas[0],
-                    large: true,
-                    instructor: false)),
-            SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: AsesoriaCard(
-                    asesoria: asesoriasValoradas[0],
-                    large: true,
-                    instructor: false)),
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 
   Widget _chatButton() {
@@ -199,7 +201,7 @@ class _InstructorProfilePageState extends State<InstructorProfilePage> {
           color: Color.fromRGBO(0, 0, 0, 1.0),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed('/chatscreen');
+          Navigator.of(context).pushNamed('/chatscreen', arguments: instructor);
         },
         iconSize: 32,
       ),

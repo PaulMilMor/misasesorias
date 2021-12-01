@@ -9,8 +9,10 @@ class ChatScreenPage extends StatefulWidget {
 }
 
 class _ChatScreenPageState extends State<ChatScreenPage> {
+  late String username;
   @override
   Widget build(BuildContext context) {
+    username = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       body: Container(
         child: Stack(
@@ -30,8 +32,8 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
                   iconSize: 25,
                 ),
                 const Icon(Icons.account_circle_rounded, size: 50),
-                const Text(" Nombre usuario",
-                    style: TextStyle(
+                Text(username,
+                    style: const TextStyle(
                       fontSize: 18.0,
                     )),
               ]),
