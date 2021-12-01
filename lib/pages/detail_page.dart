@@ -166,7 +166,10 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
               style: TextButton.styleFrom(
                 textStyle: const TextStyle(color: Colors.black),
               ),
-              onPressed: () { Navigator.pushNamed(context, '/instructorProfile'); },
+              onPressed: () {
+                Navigator.pushNamed(context, '/instructorProfile',
+                    arguments: asesoria.instructor);
+              },
               child: Text(asesoria.instructor)),
         ],
       ),

@@ -14,37 +14,43 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   List<AsesoriaModel> asesoriasValoradas = [
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Power Your Dreams',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
+        descripcion:
+            'Praesent tincidunt nibh sem, eu gravida est mollis eget. Pellentesque euismod felis non porta lobortis. Aliquam sit amet massa congue, gravida mauris nec, viverra sapien.',
+        imagen: 'https://i.ytimg.com/vi/F06b_reZxiY/maxresdefault.jpg',
+        instructor: 'Memo VII Z',
+        valoracion: 1),
+    AsesoriaModel(
+        titulo: 'Mermelada de Ciruela',
+        categoria: 'categoria',
+        precio: 200,
+        descripcion:
+            'Nullam at fringilla ex. Suspendisse vitae malesuada lectus, id venenatis mi. Nam imperdiet at eros at pellentesque. ',
         imagen:
-            'https://media.istockphoto.com/photos/female-teacher-pointing-with-finger-at-mathematical-equation-on-in-picture-id1080232656?k=20&m=1080232656&s=612x612&w=0&h=7OszmnpcTXIiIhqUXUL3sOaI-nn9DisJU8z3ceeHL5k=',
-        instructor: 'nombre instructor',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRxOKp-NbmAUCM8lVEa1RMewBgwgy5QhXJYA&usqp=CAU',
+        instructor: 'Luis Miguel',
         valoracion: 1),
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Composición Musical',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Curabitur luctus id mi non efficitur. In magna dui, lobortis sit amet diam sodales, placerat porta ipsum. Vestibulum mollis ligula nec porta elementum. ',
+        imagen:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0hoJXOQeUSPt94PYR46S_8U2zWUfWF0PnOw&usqp=CAU',
+        instructor: 'Jaime Bond',
         valoracion: 1),
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Emprendimiento',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
-        valoracion: 1),
-    AsesoriaModel(
-        titulo: 'titulo de asesoría',
-        categoria: 'categoria',
-        precio: 200,
-        descripcion: 'descripcion',
-        imagen: 'imagen',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Morbi ornare erat orci, a feugiat nunc euismod vitae. Suspendisse ultricies augue vitae facilisis aliquet. Pellentesque quis porttitor purus, vel placerat tortor.',
+        imagen:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1zCbxKzv40nNoBnX9VqM0S6Bne6A1aQCjfA&usqp=CAU',
+        instructor: 'Bill Gates',
         valoracion: 1),
   ];
   bool _isInstructor = false;
@@ -121,7 +127,7 @@ class _AccountPageState extends State<AccountPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text(
-                  "Nombre",
+                  "Deodato Flores",
                   style: TextStyle(
                       fontSize: 25.0,
                       color: Colors.blueGrey,
@@ -132,7 +138,7 @@ class _AccountPageState extends State<AccountPage> {
                   height: 5,
                 ),
                 Text(
-                  "Email",
+                  "deodato.flores@gmail.com",
                   style: TextStyle(
                       fontSize: 18.0,
                       color: Colors.black45,
