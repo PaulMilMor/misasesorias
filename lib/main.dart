@@ -7,6 +7,7 @@ import 'package:mis_asesorias/pages/create_courses.dart';
 import 'package:mis_asesorias/pages/detail_page.dart';
 import 'package:mis_asesorias/pages/edit_course.dart';
 import 'package:mis_asesorias/pages/home_page.dart';
+import 'package:mis_asesorias/pages/instructor_profile.dart';
 import 'package:mis_asesorias/pages/login_page.dart';
 import 'package:mis_asesorias/pages/navigation_page.dart';
 import 'package:mis_asesorias/pages/signup_page.dart';
@@ -36,23 +37,25 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: '/',
           routes: {
+
             '/': (BuildContext context) => const HomePage(),
             '/login': (BuildContext context) => const LoginPage(),
             '/signup': (BuildContext context) => const SignupPage(),
             '/acountPage': (BuildContext context) => const AccountPage(),
             '/acountPageInstructor': (BuildContext context) =>
-                const AccountPageInstructor(),
+            const AccountPageInstructor(),
             '/feed': (BuildContext context) => const FeedPage(),
             '/navigation': (BuildContext context) => const NavigationPage(),
             '/navigationInstructor': (BuildContext context) =>
-                const NavigationPage(
-                  isInstructor: true,
-                ),
+            const NavigationPage(
+              isInstructor: true,
+            ),
             '/createCourse': (BuildContext context) => const CreateCoursePage(),
             '/editCourse': (BuildContext context) => const EditCoursePage(),
             '/chatscreen': (BuildContext context) => const ChatScreenPage(),
             '/categories': (BuildContext context) => const CategoryPage(),
             '/detail': (BuildContext context) => const AsesoriaDetailedPage(),
+            '/instructorProfile': (BuildContext context) => const InstructorProfilePage(),
           }),
     );
   }
