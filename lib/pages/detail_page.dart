@@ -234,27 +234,27 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
         ),
-        _estudiante(),
-        _estudiante(),
-        _estudiante(),
-        _estudiante(),
-        _estudiante(),
+        _estudiante("Deodato Flores"),
+        _estudiante("Ácido Clorhídrico"),
+        _estudiante("Water Me"),
+        _estudiante("Fosfito Fosfato"),
+        _estudiante("Presa Elmo Linito"),
       ]);
     } else {
       return Column(
         children: [
           _reviews(),
-          _reviewIndividual(),
-          _reviewIndividual(),
-          _reviewIndividual(),
-          _reviewIndividual(),
-          _reviewIndividual(),
+          _reviewIndividual("Quaker State"),
+          _reviewIndividual("Asador Parrillero"),
+          _reviewIndividual("Edward String"),
+          _reviewIndividual("Altair Vega"),
+          _reviewIndividual("Jason Freezer"),
         ],
       );
     }
   }
 
-  Widget _estudiante() {
+  Widget _estudiante(String username) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       child: Row(
@@ -268,9 +268,8 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
           InkWell(
             onTap: () {
               Navigator.of(context).pushNamed('/acountPage', arguments: true);
-              print('????');
             },
-            child: const Text('Nombre Usuario'),
+            child: Text(username),
           ),
         ],
       ),
@@ -318,7 +317,7 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
     );
   }
 
-  Widget _reviewIndividual() {
+  Widget _reviewIndividual(String username) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       child: Row(
@@ -330,13 +329,14 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
           ),
           const SizedBox(width: 8),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                children: const [
-                  Text('Usuario',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  SizedBox(width: 10),
-                  Icon(Icons.star)
+                children: [
+                  Text(username,
+                      style: const TextStyle(fontWeight: FontWeight.bold)),
+                  const SizedBox(width: 10),
+                  const Icon(Icons.star)
                 ],
               ),
               const Text('Comentario'),
@@ -483,9 +483,9 @@ class _AsesoriaDetailedPageState extends State<AsesoriaDetailedPage> {
               children: <Widget>[
                 Container(
                     alignment: Alignment.center,
-                    child: const Text(
-                      "Califica a 'John Doe'",
-                      style: TextStyle(
+                    child: Text(
+                      "Califica a ${asesoria.instructor}",
+                      style: const TextStyle(
                           fontSize: 18.0,
                           color: Colors.black,
                           letterSpacing: 1.0,

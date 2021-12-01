@@ -173,7 +173,8 @@ class _AccountPageState extends State<AccountPage> {
           color: Color.fromRGBO(0, 0, 0, 1.0),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed('/chatscreen');
+          Navigator.of(context)
+              .pushNamed('/chatscreen', arguments: "Deodato Flores");
           //_reportDialog();
           //_rateDialog();
         },

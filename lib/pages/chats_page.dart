@@ -33,7 +33,7 @@ class _chatsPageState extends State<chatsPage> {
                           padding: EdgeInsets.only(
                               left: 12, top: 30, right: 12, bottom: 6),
                         ),
-                        _chat("Memo VII Z"),
+                        _chat("Alberto Singleton"),
                         const Divider(
                           color: Colors.grey,
                         ),
