@@ -20,7 +20,7 @@ class _chatsPageState extends State<chatsPage> {
                 color: Colors.white,
                 width: double.infinity,
                 child: Padding(
-                    padding: const EdgeInsets.all(36.0),
+                    padding: const EdgeInsets.all(24.0),
                     child: Column(
                       children: [
                         Container(
@@ -30,7 +30,8 @@ class _chatsPageState extends State<chatsPage> {
                                   TextStyle(color: Colors.black, fontSize: 20)),
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(left: 12, top: 30, right: 12, bottom: 6),
+                          padding: EdgeInsets.only(
+                              left: 12, top: 30, right: 12, bottom: 6),
                         ),
                         _chat(),
                         const Divider(
@@ -71,7 +72,8 @@ class _chatsPageState extends State<chatsPage> {
                     child: const Text('Nombre usuario',
                         style: TextStyle(color: Colors.black, fontSize: 16)),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/chatscreen');;
+                      Navigator.pushNamed(context, '/chatscreen');
+                      ;
                     },
                   ),
                 ],
