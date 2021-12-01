@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _image(),
+              Expanded(child: _image()),
               _buttons(),
             ],
           ),
@@ -33,10 +33,9 @@ class _HomePageState extends State<HomePage> {
 
   Widget _image() {
     return SizedBox(
-        width: double.infinity,
-        height: 600,
+      width: double.infinity,
       child: Image.asset(
-        'assets/whitelogo_asset.png',
+        'assets/images/mis_asesorias.png',
         width: 180,
       ),
     );
