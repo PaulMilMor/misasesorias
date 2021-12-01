@@ -13,13 +13,13 @@ class AccountPageInstructor extends StatefulWidget {
 class _AccountPageInstructorState extends State<AccountPageInstructor> {
   List<AsesoriaModel> asesoriasValoradas = [
     AsesoriaModel(
-        titulo: 'titulo de asesoría',
+        titulo: 'Power Your Dreams',
         categoria: 'categoria',
         precio: 200,
-        descripcion: 'descripcion',
-        imagen:
-            'https://media.istockphoto.com/photos/female-teacher-pointing-with-finger-at-mathematical-equation-on-in-picture-id1080232656?k=20&m=1080232656&s=612x612&w=0&h=7OszmnpcTXIiIhqUXUL3sOaI-nn9DisJU8z3ceeHL5k=',
-        instructor: 'nombre instructor',
+        descripcion:
+            'Praesent tincidunt nibh sem, eu gravida est mollis eget. Pellentesque euismod felis non porta lobortis. Aliquam sit amet massa congue, gravida mauris nec, viverra sapien.',
+        imagen: 'https://i.ytimg.com/vi/F06b_reZxiY/maxresdefault.jpg',
+        instructor: 'Memo VII Z',
         valoracion: 1),
     AsesoriaModel(
         titulo: 'titulo de asesoría',
@@ -111,7 +111,7 @@ class _AccountPageInstructorState extends State<AccountPageInstructor> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
-                    "Nombre",
+                    "Memo VII Z",
                     style: TextStyle(
                         fontSize: 25.0,
                         color: Colors.blueGrey,
@@ -122,7 +122,7 @@ class _AccountPageInstructorState extends State<AccountPageInstructor> {
                     height: 5,
                   ),
                   Text(
-                    "Email",
+                    "2222@gmail.com",
                     style: TextStyle(
                         fontSize: 18.0,
                         color: Colors.black45,
