@@ -84,25 +84,21 @@ class _FeedPageState extends State<FeedPage> {
 
   List<CategoriaModel> categorias = [
     CategoriaModel(
-        titulo: 'Idiomas',
+        titulo: 'Arte',
         imagen:
-            'https://cdn.pixabay.com/photo/2018/07/08/08/45/abc-3523453_960_720.jpg'),
+            'https://cdn.pixabay.com/photo/2016/11/23/00/37/art-1851483_960_720.jpg'),
     CategoriaModel(
         titulo: 'Ciencias Exactas',
         imagen:
             'https://cdn.pixabay.com/photo/2016/11/29/01/16/abacus-1866497_960_720.jpg'),
     CategoriaModel(
-        titulo: 'Informática',
+        titulo: 'Ciencias Naturales',
         imagen:
-            'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg'),
+            'https://cdn.pixabay.com/photo/2017/02/01/13/53/analysis-2030265_960_720.jpg'),
     CategoriaModel(
         titulo: 'Ciencias Sociales',
         imagen:
             'https://cdn.pixabay.com/photo/2016/08/15/08/22/greece-1594689_960_720.jpg'),
-    CategoriaModel(
-        titulo: 'Ciencias Naturales',
-        imagen:
-            'https://cdn.pixabay.com/photo/2017/02/01/13/53/analysis-2030265_960_720.jpg'),
     CategoriaModel(
         titulo: 'Cosas del Hogar',
         imagen:
@@ -112,13 +108,13 @@ class _FeedPageState extends State<FeedPage> {
         imagen:
             'https://cdn.pixabay.com/photo/2014/09/20/13/52/board-453758_960_720.jpg'),
     CategoriaModel(
-        titulo: 'Arte',
+        titulo: 'Idiomas',
         imagen:
-            'https://cdn.pixabay.com/photo/2016/11/23/00/37/art-1851483_960_720.jpg'),
+            'https://cdn.pixabay.com/photo/2018/07/08/08/45/abc-3523453_960_720.jpg'),
     CategoriaModel(
-        titulo: 'Manualidades',
+        titulo: 'Informática',
         imagen:
-            'https://cdn.pixabay.com/photo/2016/11/18/17/14/cloth-1835894_960_720.jpg'),
+            'https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg'),
   ];
 
   @override
